@@ -1,8 +1,10 @@
-
-<ul>
-    {% for item in blog %}
-    <li>
-        {{ item.active }}
-    </li>
-    {% endfor %}
-</ul>
+<h1>
+    <ul>
+        {% for item in blog %}
+        <li>
+            {{ item }}
+        </li>
+        <a href="/blog/detail/{{item.id}}">see details</a>
+        {% endfor %}
+    </ul>
+</h1>
