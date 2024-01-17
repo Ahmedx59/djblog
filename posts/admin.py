@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post,Comment
 
 
 class SearchPost(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class SearchPost(admin.ModelAdmin):
 
 
 admin.site.register(Post,SearchPost)
+admin.site.register(Comment)
