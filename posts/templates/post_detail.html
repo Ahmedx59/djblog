@@ -1,5 +1,8 @@
-<ul>
-    <li>{{ post.title }}</li>
-    <li>{{ post.content }}</li>
-    <li>{{ post.active }}</li>
-</ul>
+<h1>
+    <ul>
+        <li>{{ post.title }}</li>
+        <li>{{ post.content }}</li>
+        <li>{{ post.active }}</li>
+    </ul>
+    <a href="/blog/detail/{{post.id}}/delete">delete post</a>
+</h1>
