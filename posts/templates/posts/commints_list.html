@@ -1,0 +1,11 @@
+<h1>
+
+    <ul>
+        {% for item in commints_list %}
+        <a href="/blog/cbv/{{ item.id }}/detail">see detail</a>
+        <li>
+            {{ item.content }}
+        </li>
+        {% endfor %}
+    </ul>
+</h1>
