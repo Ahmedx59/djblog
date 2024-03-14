@@ -1,3 +1,5 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.views import generic
 
 from .models import Post,Commints
@@ -14,7 +16,7 @@ class PostList(generic.ListView):
 
 class PostDetail(generic.DetailView):
     model = Post # post_detail.html  object_detail.html
-                    # context: post  , object
+                     # context: post  , object
     
 class DeletePost(generic.DeleteView):
     model =Post

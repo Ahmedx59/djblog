@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load django_bootstrap5 %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 mt-5">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+            
+                {% bootstrap_button button_type="submit" content="OK" %}
+                {% bootstrap_button button_type="reset" content="Cancel" %}
+            </form>
+                <a href="{% url 'posts:post_list' %}"><button class="btn btn-info mt-4">return to main page</button></a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock body %}

@@ -11,15 +11,16 @@ def post_list(request):
 
 def post_detail(request,id):
     post = Post.objects.get(id=id)
-    return render(request,'posts/post_detail.html',{'post':post})
+    comment = Commints.objects.filter(post=post)
+    return render(request,'posts/post_detail.html',{'object':post,"comments":comment})
 
 
 def delete_post(request,id):
     post = Post.objects.get(id=id)
     post.delete()
-    return redirect('/blog/')
+    return redirect('/blog/cbv/')
 
-
+ 
 def add_post(request):
     if request.method == "POST":
         form = PostForm(request.POST,request.FILES)
@@ -27,10 +28,10 @@ def add_post(request):
            addForm = form.save(commit=False)
            addForm.user = request.user
            addForm.save()
-           return redirect('/blog/')
+           return redirect('/blog/cbv/')
     else:
         form = PostForm() 
-    return  render(request, "posts/add_post.html",{'form':form})
+    return  render(request, "posts/post_add.html",{'form':form})
 
 
 def edit_post(request,id):
@@ -42,7 +43,7 @@ def edit_post(request,id):
             return redirect(f'/blog/detail/{post.id}')
     else:
         form = PostForm(instance=post)
-    return render(request, "posts/edit_post.html",{'form':form})
+    return render(request, "posts/post_add.html",{'form':form})
 
 
 
